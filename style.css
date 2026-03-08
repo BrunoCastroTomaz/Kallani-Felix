@@ -5,6 +5,7 @@
     --primary: #536885; 
     --dark: #2c3e50;
     --light-bg: #f8f9fa;
+    --heavy-bg: #f8f9fac4;
     --accent: #75879D;
     --text: #4a4a4a;
     --white: #ffffff;
@@ -19,7 +20,7 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--text);
     line-height: 1.8;
-    background-color: var(--white);
+    background-color: var(--light-bg);
     overflow-x: hidden; /*isso aqui nao estava no ultimo codigo*/
 }
 
@@ -90,14 +91,15 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark);
+    color: var(--primary);
     font-size: 0.9rem; /*isso aqui nao estava no ultimo codigo*/
     font-weight: 500;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: var(--dark);
+    text-decoration: underline;
 }
 
 .btn-nav {
@@ -111,12 +113,11 @@ nav {
     transition: var(--transition); /*isso aqui nao estava no ultimo codigo*/
 }
 
-/*isso aqui nao estava no ultimo codigo*/
 .btn-nav:hover {
     background: var(--dark);
     transform: translateY(-2px);
 }
-/*isso aqui nao estava no ultimo codigo*/
+
 .menu-toggle {
     display: none; /* Escondido no Desktop */
 }
@@ -159,7 +160,7 @@ nav {
 }
 
 
-.problems { background-color: var(--light-bg); }
+.problems { background-color: var(--heavy-bg); }
 
 /*isso aqui nao estava no ultimo codigo*/
 .problems h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
@@ -174,7 +175,7 @@ nav {
     background: var(--white);
     padding: 45px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: var(--transition);
     border-bottom: 4px solid transparent;
 }
@@ -187,15 +188,51 @@ nav {
 /*isso aqui nao estava no ultimo codigo*/
 .card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary); }
 
-/*isso aqui nao estava no ultimo codigo*/
-/*#sobre-mim p { margin-bottom: 20px; max-width: 800px; font-size: 1.1rem; }*/
+/* Container para centralizar a foto */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; /* Espaço entre a foto e o título */
+}
+
+/* O "Filtro" Redondo */
+.profile-img {
+    width: 250px;           /* Largura da foto */
+    height: 250px;          /* Altura da foto (deve ser igual à largura) */
+    border-radius: 50%;     /* Faz o círculo perfeito */
+    border: 5px solid #C5A02B; /* Cor dourada/amarela da sua imagem */
+    overflow: hidden;       /* Corta a imagem para não sair do círculo */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra suave para dar profundidade */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Garante que a foto preencha o círculo sem esticar */
+    object-position: center; /* Centraliza o rosto na foto */
+}
+
+#sobre-mim {
+    background-color: var(--primary);
+}
+#sobre-mim h2 {
+    color: var(--light-bg);
+}
+#sobre-mim p {
+    color: var(--light-bg);
+    padding-bottom: 40px; 
+}
 
 
 /* Instagram Link */
 .social-link {
-    margin-top: 40px;
+    color: var(--light-bg);
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
 }
@@ -214,12 +251,11 @@ nav {
 .instagram-btn:hover { transform: scale(1.1); }
 
 
-
 /* =========================================
    4. LIVROS
    ========================================= */
-.books { text-align: center; } /*isso n estava aqui */
-.books h2 { margin-bottom: 50px; } /*isso n estava aqui */
+.books { text-align: center; padding-top: 40px; } 
+.books h2 { margin-bottom: 40px; } 
 
 .books-grid {
     display: grid;
@@ -231,12 +267,32 @@ nav {
 
 .book-item {
     display: flex;
-    /*align-items: center;*/
-    gap: 20px;
+    align-items: flex-start;
+    gap: 25px;
     background: var(--light-bg);
-    padding: 25px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
+    height: 100%;
 }
+
+.book-info {
+    display: flex;
+    flex-direction: column; /* Força o título, texto e botão a ficarem um abaixo do outro */
+    justify-content: flex-start;
+}
+
+.book-info h3 {
+    text-align: left; /* Título do livro alinhado à esquerda */
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.book-info p {
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
 
 .book-img img {
     width: 120px;
@@ -246,26 +302,32 @@ nav {
     box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
-/*n estava aqui*/
 .btn-alt {
     display: inline-block;
-    margin-top: 15px;
+    align-self: flex-start; /* Garante que o link fique na esquerda, abaixo do texto */
+    margin-top: auto; /* Empurra o botão para o fim do espaço disponível, se houver */
     color: var(--primary);
     text-decoration: none;
     font-weight: 600;
-    border-bottom: 2px solid var(--primary);
+    border-bottom: none; /* REMOVE A LINHA AZUL VOANDO */
+    transition: var(--transition);
+}
+
+.btn-alt:hover {
+    color: var(--dark);
+    text-decoration: underline; /* Adiciona um sublinhado apenas no hover, se desejar */
 }
 
 /* =========================================
    5. FAQ (ESTRUTURA CORRETA)
    ========================================= */
 .faq { 
-    background: var(--light-bg); 
+    background: var(--accent); 
     padding-top: 150px;
 }
 
 /*n estava aqui*/
-.faq h2 { text-align: center; margin-bottom: 50px; }
+.faq h2 { text-align: center; margin-bottom: 50px; color: var(--light-bg) }
 
 .accordion { max-width: 800px; margin: auto; } /*n estava aqui*/
 
@@ -370,6 +432,46 @@ footer {
 
      p { text-align: left; } /* Justificado no mobile às vezes fica feio */
     .books-grid { grid-template-columns: 1fr; }
+
+    .book-item {
+        flex-direction: column; 
+        align-items: center;    /* Centraliza a imagem e o bloco de texto horizontalmente */
+        text-align: center;     /* Centraliza o texto */
+        padding: 30px 20px;
+    }
+
+    /* Ajusta o bloco de informações para centralizar os itens internos */
+    .book-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    /* Centraliza h3, p e o botão */
+        width: 100%;
+    }
+
+    /* Garante que o título e o parágrafo fiquem centralizados (sobrescrevendo o justificado) */
+    .book-info h3, 
+    .book-info p {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Centraliza especificamente a imagem */
+    .book-img {
+        margin-bottom: 20px; /* Dá um respiro entre a imagem e o título */
+    }
+
+    .book-img img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Força o botão "Saiba mais" a centralizar */
+    .btn-alt {
+        align-self: center;    /* Remove o flex-start do desktop e centraliza */
+        margin-top: 15px;
+    }
+
     .nav-links { display: none; }
     .menu-toggle { display: block; cursor: pointer; font-size: 1.5rem; }
     section { padding: 60px 0; }
@@ -399,15 +501,11 @@ footer {
         display: flex;
     }
 
-    .book-item {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .nav-right { gap: 15px; }
     
     .btn-nav {
         padding: 10px 18px;
         font-size: 0.8rem;
     }
+
 }
