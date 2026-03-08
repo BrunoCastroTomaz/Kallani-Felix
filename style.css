@@ -1,155 +1,413 @@
+/* =========================================
+   1. VARIÁVEIS E BASE
+   ========================================= */
 :root {
     --primary: #536885; 
-    --dark: #475A70;
-    --light: #dce0E9;
-    --accent: #75879D; /* Tom terroso */
+    --dark: #2c3e50;
+    --light-bg: #f8f9fa;
+    --accent: #75879D;
+    --text: #4a4a4a;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.8;
+    background-color: var(--white);
+    overflow-x: hidden; /*isso aqui nao estava no ultimo codigo*/
+}
+
+/* Ajuste Global de Textos */
+p {
+    text-align: justify;
+    hyphens: auto; /* Evita grandes espaços vazios */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
     color: var(--dark);
-    line-height: 1.6;
-    background-color: white;
+    text-align: center; /* Títulos geralmente ficam melhores centralizados */
+    margin-bottom: 30px;
+}
+
+/*isso aqui nao estava no ultimo codigo*/
+h1, h2, h3 {
+    line-height: 1.2;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
-    padding: 0 30px;
+    padding: 0 25px;
 }
 
-/* Header */
-/* Header - Ajuste de Cor e Altura */
+section {
+    padding: 120px 0;
+}
+
+/* =========================================
+   2. HEADER E NAVEGAÇÃO
+   ========================================= */
 header {
-    background: #ffffff; /* Fundo branco puro deixa o header mais leve que o var(--light) */
-    padding: 8px 0; /* Diminuído para o header não ocupar muito espaço na tela */
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* Sombra mais suave */
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
 
-/* Nav - Alinhamento */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Grupo da Direita - Onde a mágica acontece */
+.logo img {
+    height: 70px;
+    width: auto;
+    display: block; /*isso aqui nao estava no ultimo codigo*/
+}
+
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 45px; /* Aumentei um pouco para afastar bem o "Dúvidas" do botão */
+    gap: 30px;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 15px; /* Espaço entre os itens do menu (Início, Sobre...) */
+    gap: 30px;
 }
 
-.nav-links li a {
-    white-space: nowrap;
+.nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-size: 0.95rem;
+    font-size: 0.9rem; /*isso aqui nao estava no ultimo codigo*/
     font-weight: 500;
-    padding: 5px 8px;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
-/* Botão mais harmonioso */
+.nav-links a:hover {
+    color: var(--primary);
+}
+
 .btn-nav {
     background: var(--primary);
-    color: white;
-    padding: 10px 22px; 
-    border-radius: 50px; /* Mais arredondado passa mais suavidade */
-    font-size: 0.85rem;
-    text-transform: uppercase; /* Opcional: deixa o botão com cara de ação */
-    letter-spacing: 0.5px;
-    white-space: nowrap;
+    color: var(--white);
+    padding: 12px 28px; 
+    border-radius: 50px;
+    font-size: 0.9rem;
+    text-decoration: none;
     font-weight: 600;
+    transition: var(--transition); /*isso aqui nao estava no ultimo codigo*/
 }
 
-/* Esconde o menu mobile por padrão */
+/*isso aqui nao estava no ultimo codigo*/
+.btn-nav:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+/*isso aqui nao estava no ultimo codigo*/
 .menu-toggle {
-    display: none;
+    display: none; /* Escondido no Desktop */
 }
 
-/* Hero */
+/* =========================================
+   3. SEÇÕES PRINCIPAIS (Hero, Problemas, Sobre)
+   ========================================= */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+    height: 85vh;
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
                 url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1470') center/cover;
     display: flex;
     align-items: center;
     text-align: center;
+    margin-bottom: 40px; /* Garante distância da próxima seção */
 }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
+/*isso aqui nao estava no ultimo codigo*/
+.hero-content { max-width: 800px; margin: auto; }
+/*isso aqui nao estava no ultimo codigo*/
+.hero h1 { font-size: 3.5rem; margin-bottom: 25px; }
+/*isso aqui nao estava no ultimo codigo*/
+.hero p { font-size: 1.2rem; margin-bottom: 35px; }
 
+/*isso aqui nao estava no ultimo codigo*/
 .btn-main {
     display: inline-block;
-    margin-top: 30px;
     background: var(--dark);
-    color: white;
-    padding: 15px 40px;
+    color: var(--white);
+    padding: 18px 45px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+/*isso aqui nao estava no ultimo codigo*/
+.btn-main:hover {
+    background: var(--primary);
+    transform: scale(1.05);
 }
 
-/* Cards */
+
+.problems { background-color: var(--light-bg); }
+
+/*isso aqui nao estava no ultimo codigo*/
+.problems h2 { text-align: center; margin-bottom: 60px; font-size: 2.5rem; }
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
 .card {
-    background: var(--light);
-    padding: 30px;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    background: var(--white);
+    padding: 45px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
 }
 
-.card:hover { transform: translateY(-10px); }
+/*isso aqui nao estava no ultimo codigo*/
+.card:hover {
+    transform: translateY(-10px);
+    border-bottom: 4px solid var(--primary);
+}
+/*isso aqui nao estava no ultimo codigo*/
+.card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary); }
 
-/* FAQ Accordion */
-.faq-item { border-bottom: 1px solid #ddd; }
+/*isso aqui nao estava no ultimo codigo*/
+/*#sobre-mim p { margin-bottom: 20px; max-width: 800px; font-size: 1.1rem; }*/
+
+
+/* Instagram Link */
+.social-link {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #E1306C; /* Cor do Instagram */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.instagram-btn:hover { transform: scale(1.1); }
+
+
+
+/* =========================================
+   4. LIVROS
+   ========================================= */
+.books { text-align: center; } /*isso n estava aqui */
+.books h2 { margin-bottom: 50px; } /*isso n estava aqui */
+
+.books-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 80px;
+   /* text-align: left; /*isso n estava aqui */
+}
+
+.book-item {
+    display: flex;
+    /*align-items: center;*/
+    gap: 20px;
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.book-img img {
+    width: 120px;
+    /*height: 220px;*/
+    /*object-fit: cover;*/
+    /*border-radius: 5px;*/
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+}
+
+/*n estava aqui*/
+.btn-alt {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary);
+}
+
+/* =========================================
+   5. FAQ (ESTRUTURA CORRETA)
+   ========================================= */
+.faq { 
+    background: var(--light-bg); 
+    padding-top: 150px;
+}
+
+/*n estava aqui*/
+.faq h2 { text-align: center; margin-bottom: 50px; }
+
+.accordion { max-width: 800px; margin: auto; } /*n estava aqui*/
+
+/*n estava aqui*/
+.faq-item {
+    background: var(--white);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 10px 30px 30px;
+}
+
+/*n estava aqui*/
 .faq-question {
     width: 100%;
     text-align: left;
-    padding: 20px;
+    padding: 20px 30px;
     background: none;
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark);
 }
-
+/*n estava aqui*/
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+/*n estava aqui*/
 .faq-answer {
-    padding: 0 20px 20px;
-    display: none;
+    max-height: 0; /* Fechado por padrão */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 0 30px;
+    color: var(--text);
 }
 
+/* Estado Ativo do FAQ (via JS) */
+/*n estava aqui*/
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Abre a resposta */
+    padding: 10px 30px 25px;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+footer {
+    padding: 80px 0;
+    text-align: center;
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    height: 160px;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.footer-sub {
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+/* =========================================
+   7. RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================= */
+
+/* Tablets e Telas Médias */
+@media (max-width: 900px) {
+    .books-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.5rem; }
+}
+
+/* Celulares */
 @media (max-width: 768px) {
-    .nav-links { 
-        display: none; /* Esconde os links no mobile */
-    }
-    
-    .nav-right {
-        gap: 15px; /* Diminui o espaço entre botão e hambúrguer no celular */
+
+     p { text-align: left; } /* Justificado no mobile às vezes fica feio */
+    .books-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .menu-toggle { display: block; cursor: pointer; font-size: 1.5rem; }
+    section { padding: 60px 0; }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--primary);
     }
 
-    .logo img {
-        height: 40px; /* Logo um pouco menor no celular */
+    .nav-links {
+        display: none; /* JS vai alternar com .active */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .book-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-right { gap: 15px; }
+    
+    .btn-nav {
+        padding: 10px 18px;
+        font-size: 0.8rem;
     }
 }
