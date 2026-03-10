@@ -430,7 +430,7 @@ footer {
 /* Celulares */
 @media (max-width: 768px) {
 
-     p { text-align: left; } /* Justificado no mobile às vezes fica feio */
+     p { text-align: left; hyphens: none; } /* Justificado no mobile às vezes fica feio */
     .books-grid { grid-template-columns: 1fr; }
 
     .book-item {
