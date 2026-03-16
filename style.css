@@ -26,8 +26,8 @@ body {
 
 /* Ajuste Global de Textos */
 p {
-    text-align: justify;
-    hyphens: auto; /* Evita grandes espaços vazios */
+    text-align: left;
+    hyphens: none; /* Evita grandes espaços vazios */
 }
 
 h1, h2, h3 {
@@ -138,7 +138,7 @@ nav {
 /*isso aqui nao estava no ultimo codigo*/
 .hero-content { max-width: 800px; margin: auto; }
 /*isso aqui nao estava no ultimo codigo*/
-.hero h1 { font-size: 3.5rem; margin-bottom: 25px; }
+.hero h1 { font-size: 3rem; margin-bottom: 25px; }
 /*isso aqui nao estava no ultimo codigo*/
 .hero p { font-size: 1.2rem; margin-bottom: 35px; }
 
@@ -178,6 +178,15 @@ nav {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: var(--transition);
     border-bottom: 4px solid transparent;
+}
+
+.card p {
+    text-align: justify;
+    font-size: .9rem;
+}
+
+.segundo-card p {
+    padding-top: 30px;
 }
 
 /*isso aqui nao estava no ultimo codigo*/
@@ -224,32 +233,29 @@ nav {
 #sobre-mim p {
     color: var(--light-bg);
     padding-bottom: 40px; 
+    text-align: justify;
 }
 
 
 /* Instagram Link */
-.social-link {
-    color: var(--light-bg);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
+/* .social-link a {
+    display: inline-block;
 }
 
-.instagram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #E1306C; /* Cor do Instagram */
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: var(--transition);
-}
-
-.instagram-btn:hover { transform: scale(1.1); }
-
+.social-link img {
+    width: 40px;
+    height: 40px;
+    background-color: #E1306C; /* A cor que você quer */
+   /* -webkit-mask-image: url('instagram.png');
+    mask-image: url('instagram.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    
+    /* Esconde a imagem original para mostrar apenas a máscara colorida */
+    /*object-position: -9999px; 
+} */
 
 /* =========================================
    4. LIVROS
