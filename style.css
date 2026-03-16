@@ -140,7 +140,7 @@ nav {
 /*isso aqui nao estava no ultimo codigo*/
 .hero h1 { font-size: 3rem; margin-bottom: 25px; }
 /*isso aqui nao estava no ultimo codigo*/
-.hero p { font-size: 1.2rem; margin-bottom: 35px; }
+.hero p { font-size: 1.2rem; margin-bottom: 35px; text-align: center; }
 
 /*isso aqui nao estava no ultimo codigo*/
 .btn-main {
@@ -181,12 +181,23 @@ nav {
 }
 
 .card p {
-    text-align: justify;
+    text-align: center;
     font-size: .9rem;
 }
 
 .segundo-card p {
-    padding-top: 30px;
+    padding-top: 18px;
+}
+
+.terceiro-card h3 {
+    line-height: 1.5;
+}
+
+.terceiro-card p {
+    padding-top: 10px;
+    font-size: 0.826rem;
+    line-height: 1.63rem;
+ 
 }
 
 /*isso aqui nao estava no ultimo codigo*/
