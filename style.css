@@ -183,6 +183,7 @@ nav {
 .card p {
     text-align: center;
     font-size: .9rem;
+    line-height: 1.15;
 }
 
 .segundo-card p {
@@ -196,7 +197,7 @@ nav {
 .terceiro-card p {
     padding-top: 10px;
     font-size: 0.826rem;
-    line-height: 1.63rem;
+    line-height: 1.15rem;
  
 }
 
@@ -387,6 +388,7 @@ nav {
 /*n estava aqui*/
 .faq-answer {
     max-height: 0; /* Fechado por padrão */
+    font-weight: 400;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     padding: 0 30px;
