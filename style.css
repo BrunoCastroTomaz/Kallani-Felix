@@ -183,21 +183,27 @@ nav {
 .card p {
     text-align: center;
     font-size: .9rem;
-    line-height: 1.15;
+    line-height: 1.50;
 }
 
+.primeiro-card h3 {
+    padding-bottom: 10px;
+}
+
+.segundo-card h3 {
+    line-height: 1.65;
+}
 .segundo-card p {
     padding-top: 18px;
 }
 
 .terceiro-card h3 {
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .terceiro-card p {
-    padding-top: 10px;
-    font-size: 0.826rem;
-    line-height: 1.15rem;
+    padding-top: 5px;
+    font-size: 0.95rem;
  
 }
 
