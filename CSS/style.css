@@ -128,7 +128,7 @@ nav {
 .hero {
     height: 85vh;
     background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), 
-                url('Fundo-SITE.png') right / contain no-repeat;
+                url('../images/Fundo-SITE.png') right / contain no-repeat;
     background-color: #F3EEF0;
     display: flex;
     align-items: center;
@@ -460,7 +460,7 @@ footer {
 
      .hero {
         background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), 
-                url('Fundo-SITE.png') center / cover no-repeat;
+                url('../images/Fundo-SITE.png') center / cover no-repeat;
      }
     .books-grid { grid-template-columns: 1fr; }
 
